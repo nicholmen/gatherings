@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import GatheringItem from './GatheringItem'
 
 class Gatherings extends Component{
   constructor(){
@@ -25,7 +26,7 @@ class Gatherings extends Component{
   render(){
     const gatheringItems = this.state.gatherings.map((gathering, i) => {
       return(
-        <li className="collection-item">{gathering.name}</li>
+        <GatheringItem key={gathering.id} item={gathering} />
       )
     })
     return (
