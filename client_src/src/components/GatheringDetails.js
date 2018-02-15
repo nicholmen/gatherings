@@ -24,6 +24,15 @@ class GatheringDetails extends Component{
     })
     .catch(error => console.log(error))
   }
+
+  onDelete(){
+    let gatheringId = this.state.details.id;
+    axios.delete(`http://localhost:3000/api/gatherings/${gatheringId}`)
+      .then(response => {
+        this.props.history.push('/');
+      }).catch(error => console.log(error))
+  }
+
   render(){
     return(
       <div>
@@ -36,7 +45,7 @@ class GatheringDetails extends Component{
         </ul>
         <Link className="btn" to={`/gatherings/edit/${this.state.details.id}`}>Edit</Link>
 
-        <button className="btn red right">Delete</button>
+        <button onClick={this.onDelete.bind(this)} className="btn red right">Delete</button>
       </div>
     )
   }
