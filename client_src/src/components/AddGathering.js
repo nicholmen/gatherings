@@ -12,6 +12,7 @@ class AddGathering extends Component{
       this.props.history.push('/'); // history comes from react router 
     }).catch(error => console.log(error))
   }
+  
   onSubmit(e){
     const newGathering = {
       name: this.refs.name.value,
